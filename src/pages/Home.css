@@ -407,21 +407,24 @@
 
 /* Apparel Categories */
 .apparel-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
   padding-top: 2rem;
 }
 
 .apparel-tag {
   background: #ffffff;
-  padding: 1.25rem 2.5rem;
+  padding: 1.25rem 1.5rem;
   font-weight: 700;
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--text-primary);
   transition: all 0.3s ease;
   cursor: default;
+  text-align: center;
+  border-radius: 4px;
 }
 
 .apparel-tag:hover {
@@ -464,7 +467,7 @@
   margin-bottom: 0;
 }
 
-/* Responsive */
+/* Responsive — Tablet */
 @media (max-width: 992px) {
   .hero-title {
     font-size: 3rem;
@@ -521,6 +524,97 @@
     text-align: center;
     gap: 3rem;
     padding: 3rem 2rem;
+  }
+
+  /* Train — tablet */
+  .train-compartment {
+    width: 480px;
+    height: auto;
+    min-height: 280px;
+    padding: 2rem;
+  }
+
+  .compartment-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .train-carriages {
+    gap: 4rem;
+    padding-left: 2rem;
+  }
+
+  .train-coupler {
+    right: -4rem;
+    width: 4rem;
+  }
+
+  .apparel-tags {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Responsive — Mobile */
+@media (max-width: 576px) {
+  .train-compartment {
+    width: 320px;
+    height: auto;
+    min-height: auto;
+    padding: 1.5rem;
+  }
+
+  .compartment-content {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .compartment-text {
+    text-align: center;
+  }
+
+  .compartment-text h3 {
+    font-size: 1.1rem;
+  }
+
+  .compartment-text p {
+    font-size: 0.85rem;
+  }
+
+  .step-num {
+    font-size: 1.6rem;
+  }
+
+  .compartment-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .train-carriages {
+    gap: 3rem;
+    padding-left: 1rem;
+  }
+
+  .train-coupler {
+    right: -3rem;
+    width: 3rem;
+  }
+
+  .runway-header {
+    top: 4vh;
+  }
+
+  .runway-header .section-title {
+    font-size: 1.8rem !important;
+  }
+
+  .apparel-tags {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .apparel-tag {
+    padding: 1rem;
+    font-size: 0.75rem;
   }
 }
 

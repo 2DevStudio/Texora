@@ -160,9 +160,8 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(17, 24, 39, 0.95);
+    backdrop-filter: blur(24px) saturate(180%);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -170,7 +169,7 @@
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
-    z-index: 999;
+    z-index: 1001;
   }
 
   .nav-links.active {
@@ -179,14 +178,14 @@
   }
 
   .nav-links .nav-link {
-    color: var(--text-primary);
+    color: #ffffff;
     font-size: 1.25rem;
     letter-spacing: 2px;
   }
 
   .mobile-toggle {
     display: block;
-    z-index: 1001;
+    z-index: 1002;
   }
 
   .desktop-only {
