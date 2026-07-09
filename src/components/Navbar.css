@@ -15,6 +15,7 @@
   backdrop-filter: none !important;
   border-bottom: 1px solid transparent !important;
   box-shadow: none !important;
+  transition: none !important; /* Disable transition instantly when menu is active */
 }
 
 /* Transparent state — sits on top of hero */
