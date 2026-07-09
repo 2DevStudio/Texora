@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  /* Premium Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f3f4f6;
+  --bg-charcoal: #111827;
+  --bg-dark-gray: #1f2937;
+  
+  --accent-primary: #059669; /* Emerald Green */
+  --accent-secondary: #047857; /* Darker Emerald */
+  --accent-light: #d1fae5;
+  
+  --text-primary: #111827; /* Charcoal */
+  --text-secondary: #4b5563; /* Medium Gray */
+  --text-light: #9ca3af;
+  --text-inverse: #ffffff;
+  
+  --border-color: #e5e7eb;
+  --border-dark: #374151;
+  
+  /* Typography */
+  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 800; /* Bolder for premium look */
+  line-height: 1.1;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* Utilities */
+.container {
+  width: 100%;
+  max-width: 1300px; /* Wider for editorial look */
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.text-accent {
+  color: var(--accent-primary);
+}
+
+.text-charcoal {
+  color: var(--bg-charcoal);
+}
+
+.bg-charcoal {
+  background-color: var(--bg-charcoal);
+  color: var(--text-inverse);
+}
+
+.bg-charcoal h1, .bg-charcoal h2, .bg-charcoal h3, .bg-charcoal h4 {
+  color: var(--text-inverse);
+}
+
+.btn-primary {
+  background: var(--accent-primary);
+  color: #fff;
+  padding: 0.85rem 2.2rem;
+  border-radius: 50px; /* Pill shape for premium minimal design */
+  font-weight: 700;
+  font-family: var(--font-heading);
+  border: 1.5px solid var(--accent-primary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 12px 0 rgba(5, 150, 105, 0.2);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--accent-secondary);
+  z-index: -1;
+  transition: top 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.btn-primary:hover::before {
+  top: 0;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(5, 150, 105, 0.35);
+  letter-spacing: 1.5px; /* Elegant minimal expansion */
+}
+
+.btn-primary:active {
+  transform: translateY(1px) scale(0.98);
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.15);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  padding: 0.85rem 2.2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-family: var(--font-heading);
+  border: 1.5px solid var(--text-primary);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.btn-outline::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--text-primary);
+  z-index: -1;
+  transition: top 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.btn-outline:hover::before {
+  top: 0;
+}
+
+.btn-outline:hover {
+  color: var(--text-inverse) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  letter-spacing: 1.5px;
+}
+
+.btn-outline:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+.bg-charcoal .btn-outline {
+  color: var(--text-inverse);
+  border-color: var(--text-inverse);
+}
+
+.bg-charcoal .btn-outline::before {
+  background: var(--text-inverse);
+}
+
+.bg-charcoal .btn-outline:hover {
+  color: var(--bg-charcoal) !important;
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+}
+
+.bg-charcoal .btn-outline:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+/* Base layouts */
+.section-padding {
+  padding: 8rem 0; /* Generous breathing room */
+}
+
+.bg-light {
+  background-color: var(--bg-secondary);
+}
+
+/* Premium Manufacturing Textures */
+.bg-texture-weave {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+    url('data:image/svg+xml;utf8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M0 10L10 0M10 20L20 10" stroke="%23e5e7eb" stroke-width="1" fill="none"/></svg>');
+}
+
+.bg-charcoal.bg-texture-weave {
+  background-image: 
+    linear-gradient(rgba(17, 24, 39, 0.97), rgba(17, 24, 39, 0.97)),
+    url('data:image/svg+xml;utf8,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M0 10L10 0M10 20L20 10" stroke="%23374151" stroke-width="1" fill="none"/></svg>');
+}
+
+
+
+.card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 3rem;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 4rem 0;
+  }
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+/* Green Stitch Border Element Styles */
+.stitch-border {
+  background-color: var(--accent-primary) !important;
+  /* Dense repeating thread lines pattern simulating woven cloth */
+  background-image: 
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.07) 1px, transparent 1px, transparent 3px),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.07) 1px, transparent 1px, transparent 3px),
+    linear-gradient(135deg, rgba(5, 150, 105, 0.96), rgba(4, 120, 87, 0.99));
+  color: #ffffff !important;
+  border: 1.5px dashed rgba(255, 255, 255, 0.3) !important;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 
+    inset 0 0 15px rgba(0, 0, 0, 0.22),
+    0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.stitch-border * {
+  color: #ffffff !important;
+}
+
+.stitch-border::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  border: 1px dashed rgba(255, 255, 255, 0.75) !important;
+  pointer-events: none;
+}

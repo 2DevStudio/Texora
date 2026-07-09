@@ -1,0 +1,238 @@
+.contact-page {
+  padding-top: 0;
+}
+
+
+
+.contact-container {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 2rem;
+}
+
+.contact-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.contact-desc {
+  color: var(--text-secondary);
+  margin-bottom: 2.5rem;
+}
+
+.info-items {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.info-item h4 {
+  font-size: 1.125rem;
+  margin-bottom: 0.25rem;
+  color: var(--text-primary);
+}
+
+.info-item p, .info-item a {
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.info-item a:hover {
+  color: var(--accent-primary);
+}
+
+.contact-hours h4 {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.contact-hours p {
+  color: var(--text-secondary);
+  margin-bottom: 0.25rem;
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent-primary);
+}
+
+.submit-btn {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 1.25rem;
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Success Message */
+.success-message {
+  text-align: center;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.success-message h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #10b981;
+}
+
+.success-message p {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+}
+
+/* Contact Hero Section */
+.contact-hero-section {
+  height: 90vh;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+  background-image: 
+    linear-gradient(to right, rgba(17, 24, 39, 0.95) 30%, rgba(17, 24, 39, 0.7) 60%, rgba(17, 24, 39, 0.3) 100%),
+    url('/contact_bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-container-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.hero-text-block {
+  max-width: 800px;
+  text-align: left;
+}
+
+.hero-text-block .kicker {
+  font-size: 0.875rem;
+  letter-spacing: 3px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+
+.hero-text-block .hero-title {
+  display: block;
+  font-size: clamp(3rem, 7vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+  white-space: nowrap;
+  text-shadow: none;
+}
+
+.hero-text-block .title-divider {
+  width: 60px;
+  height: 2px;
+  background-color: var(--accent-primary);
+  margin-bottom: 2rem;
+}
+
+.hero-text-block .hero-description {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .contact-hero-section {
+    min-height: 80vh;
+    height: auto;
+    padding: 8rem 0 4rem 0;
+    background-image: 
+      linear-gradient(rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.9)),
+      url('/contact_bg.png');
+  }
+  .hero-text-block {
+    text-align: center;
+    margin: 0 auto;
+  }
+  .hero-text-block .hero-title {
+    white-space: normal;
+  }
+  .hero-text-block .title-divider {
+    margin: 0 auto 2rem auto;
+  }
+  .contact-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+
+
+
+

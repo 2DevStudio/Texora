@@ -1,0 +1,575 @@
+/* Hero Section — Full Viewport */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg-image {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('/Texora_hero.png');
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  /* Darkened overlay matching brand colors to maximize text contrast */
+  background: linear-gradient(to bottom, rgba(17, 24, 39, 0.75) 0%, rgba(17, 24, 39, 0.4) 50%, rgba(17, 24, 39, 0.85) 100%);
+  z-index: 1;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.hero-content {
+  max-width: 1000px;
+  width: 100%;
+}
+
+.hero-kicker {
+  font-weight: 700;
+  letter-spacing: 4px;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+  color: var(--accent-primary);
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  line-height: 1.1;
+  text-transform: uppercase;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-title-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Floating Trust Cards */
+.trust-cards-section {
+  position: relative;
+  z-index: 10;
+  padding: 6rem 0;
+  background-color: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.trust-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.trust-card {
+  background: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 2px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.stat-number {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.trust-card p {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.875rem;
+}
+
+/* Common Styles */
+.section-header {
+  margin-bottom: 5rem;
+}
+
+.kicker {
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  display: block;
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.position-relative { position: relative; }
+.relative-z { position: relative; z-index: 2; }
+
+/* Services Showcase (Layered Cards) */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+}
+
+.service-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-bottom: 4px solid var(--accent-primary);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px -10px rgba(16, 185, 129, 0.35);
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+}
+
+.service-card:hover {
+  transform: scale(1.04) translateY(-4px);
+  box-shadow: 
+    0 25px 45px -10px rgba(16, 185, 129, 0.55),
+    0 10px 20px -5px rgba(16, 185, 129, 0.3);
+}
+
+.service-img-wrap {
+  height: 400px;
+  overflow: hidden;
+  position: relative;
+}
+
+.service-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.service-card:hover .service-img-wrap img {
+  transform: scale(1.06);
+}
+
+.service-info {
+  padding: 3rem;
+  border-top: 1px solid var(--border-color);
+  background: #ffffff;
+}
+
+.service-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.mt-lg {
+  margin-top: 6rem;
+}
+
+/* Pinned Horizontal Train Runway */
+.process-runway-section {
+  position: relative;
+  height: 300vh; /* Scroll Runway Height */
+  background: #090a0b;
+  margin-top: 4rem;
+}
+
+.sticky-timeline-wrapper {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #08090a;
+}
+
+.runway-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.runway-header {
+  position: absolute;
+  top: 8vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 10;
+}
+
+/* Horizontal Train Viewport */
+.train-track-viewport {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: visible;
+  padding: 3rem 0;
+  z-index: 2;
+  margin-top: 1rem;
+}
+
+.train-carriages {
+  display: flex;
+  flex-direction: row;
+  gap: 6rem;
+  padding-left: 4rem; /* Start aligned with left margin */
+  will-change: transform;
+}
+
+.train-compartment-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.train-compartment {
+  width: 640px;
+  height: 350px;
+  background: rgba(22, 25, 27, 0.9);
+  border: 1.5px solid rgba(16, 185, 129, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(12px);
+  padding: 2.5rem;
+  display: flex;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.compartment-content {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  width: 100%;
+}
+
+.compartment-text {
+  flex: 1;
+  text-align: left;
+}
+
+.step-num {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 2.2rem;
+  line-height: 1;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.compartment-text h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.75rem;
+  color: #ffffff;
+}
+
+.compartment-text p {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.compartment-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid var(--accent-primary);
+  flex-shrink: 0;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.2);
+}
+
+.compartment-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Metal Coupler Links */
+.train-coupler {
+  position: absolute;
+  right: -6rem;
+  width: 6rem;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coupler-link {
+  width: 100%;
+  height: 6px;
+  background: #3c4247;
+  border-radius: 3px;
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.coupler-link::before,
+.coupler-link::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: #191c1e;
+  border: 2px solid #58616a;
+  border-radius: 50%;
+  top: -4px;
+}
+
+.coupler-link::before {
+  left: -4px;
+}
+
+.coupler-link::after {
+  right: -4px;
+}
+
+/* Railroad Tracks */
+.railroad-track {
+  position: absolute;
+  bottom: 12vh;
+  left: 0;
+  right: 0;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.rail {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  width: 100%;
+}
+
+.rail-ties {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 5px;
+}
+
+.rail-tie {
+  width: 5px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Apparel Categories */
+.apparel-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding-top: 2rem;
+}
+
+.apparel-tag {
+  background: #ffffff;
+  padding: 1.25rem 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.apparel-tag:hover {
+  background: var(--accent-primary);
+  color: #ffffff;
+}
+
+/* CTA Section */
+.border-top {
+  border-top: 1px solid var(--border-color);
+}
+
+.cta-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-bottom: 5px solid var(--accent-primary);
+  padding: 5rem;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px -10px rgba(16, 185, 129, 0.35);
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+}
+
+.cta-block:hover {
+  transform: scale(1.02);
+  box-shadow: 0 28px 55px -10px rgba(16, 185, 129, 0.5);
+}
+
+.cta-block .cta-title {
+  color: var(--text-primary) !important;
+}
+
+.cta-block p {
+  color: var(--text-secondary) !important;
+}
+
+.cta-title {
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+  .hero-title-line {
+    white-space: normal;
+  }
+  
+  .trust-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .mt-lg {
+    margin-top: 0;
+  }
+  
+  .spiral-stages-stack {
+    max-width: 92%;
+    height: 450px;
+    margin-top: 3rem;
+  }
+  
+  .spiral-card-content {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    padding: 2rem 1.5rem !important;
+  }
+  
+  .spiral-card-text {
+    text-align: center !important;
+  }
+  
+  .spiral-card-text h3 {
+    font-size: 1.3rem !important;
+  }
+  
+  .spiral-card-image {
+    width: 140px !important;
+    height: 140px !important;
+  }
+  
+  .spiral-background-canvas {
+    opacity: 0.1;
+  }
+
+  .cta-block {
+    flex-direction: column;
+    text-align: center;
+    gap: 3rem;
+    padding: 3rem 2rem;
+  }
+}
+
+/* Minimal Scroll Down Indicator */
+.scroll-down-container {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.scroll-down-line {
+  position: relative;
+  width: 1px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.15);
+  overflow: hidden;
+}
+
+.scroll-down-line::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: var(--accent-primary);
+  animation: scroll-line-flow 2s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+}
+
+.scroll-down-text {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 500;
+}
+
+@keyframes scroll-line-flow {
+  0% {
+    top: -30%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
