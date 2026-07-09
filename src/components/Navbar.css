@@ -6,11 +6,6 @@
   z-index: 1000;
   padding: 1rem 0;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  /* Force GPU compositing layer so backdrop-filter works everywhere */
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  will-change: backdrop-filter, background;
-  isolation: isolate;
 }
 
 /* Transparent state — sits on top of hero */
@@ -34,9 +29,8 @@
 
 /* Liquid Glass state — on scroll */
 .navbar-glass {
-  background: rgba(17, 24, 39, 0.82);
+  background: rgba(17, 24, 39, 0.3);
   backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
 }
