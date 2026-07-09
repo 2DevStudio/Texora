@@ -8,6 +8,15 @@
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Expand containing block to full height when mobile menu is open to prevent clipping */
+.navbar.menu-open {
+  height: 100vh;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  border-bottom: 1px solid transparent !important;
+  box-shadow: none !important;
+}
+
 /* Transparent state — sits on top of hero */
 .navbar-transparent {
   background: transparent;

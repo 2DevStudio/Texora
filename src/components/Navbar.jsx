@@ -38,7 +38,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`navbar ${scrolled ? 'navbar-glass' : 'navbar-transparent'}`}>
+    <nav className={`navbar ${scrolled ? 'navbar-glass' : 'navbar-transparent'} ${mobileMenuOpen ? 'menu-open' : ''}`}>
       <div className="container nav-container">
         <Link to="/" className="nav-logo" onClick={closeMenu}>
           <img 
