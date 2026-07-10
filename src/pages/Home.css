@@ -768,14 +768,14 @@
 }
 
 .bullet-arrow {
-  color: #f97316; /* Vibrant Orange arrow */
+  color: var(--accent-primary); /* Brand Green arrow */
   font-weight: 800;
 }
 
 .btn-secondary.btn-full {
   width: 100%;
-  border: 1.5px solid #f97316;
-  color: #f97316;
+  border: 1.5px solid var(--accent-primary);
+  color: var(--accent-primary);
   background: transparent;
   padding: 1rem;
   border-radius: 6px;
@@ -789,7 +789,7 @@
 }
 
 .btn-secondary.btn-full:hover {
-  background: #f97316;
+  background: var(--accent-primary);
   color: #ffffff;
 }
 
@@ -809,12 +809,12 @@
 }
 
 .business-cta-banner {
-  background: linear-gradient(135deg, #ea580c 0%, #f97316 100%); /* Premium Orange Gradient */
+  background: linear-gradient(135deg, var(--accent-secondary) 0%, var(--accent-primary) 100%); /* Brand Green Gradient */
   border-radius: 16px;
   padding: 5rem 4rem;
   text-align: center;
   color: #ffffff;
-  box-shadow: 0 20px 40px rgba(249, 115, 22, 0.25);
+  box-shadow: 0 20px 40px rgba(5, 150, 105, 0.25);
 }
 
 .business-cta-banner h2 {
@@ -835,7 +835,7 @@
 
 .btn-white {
   background: #ffffff;
-  color: #f97316;
+  color: var(--accent-primary);
   padding: 1.25rem 2.5rem;
   border-radius: 9999px;
   font-weight: 800;
