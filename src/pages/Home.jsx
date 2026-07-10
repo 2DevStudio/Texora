@@ -483,9 +483,11 @@ const Home = () => {
             <p>
               We offer bulk discounts, dedicated account managers, and flexible payment terms for business clients. Let us help you create the perfect uniforms for your team.
             </p>
-            <Link to="/contact" className="btn-white">
-              Request Business Quote
-            </Link>
+            <div className="btn-white-wrapper">
+              <Link to="/contact" className="btn-white">
+                Request Business Quote
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>

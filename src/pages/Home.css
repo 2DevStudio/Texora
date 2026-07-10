@@ -906,6 +906,14 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
+.btn-white-wrapper {
+  display: inline-flex;
+  position: relative;
+  padding: 12px 0 0 0; /* Creates an anchor area that remains static */
+  margin: -12px 0 0 0;
+  cursor: pointer;
+}
+
 .btn-white {
   background: #ffffff;
   color: var(--accent-primary);
@@ -929,15 +937,14 @@
   perspective: 1000px;
 }
 
-.btn-white:hover {
-  color: var(--accent-primary);
-  background: #ffffff;
-  transform: translateY(-8px) translateZ(10px); /* Lift straight up in 3D space to prevent hover jitter loop */
+/* Trigger animation when the static wrapper container is hovered */
+.btn-white-wrapper:hover .btn-white {
+  transform: translateY(-8px) translateZ(10px);
   box-shadow: 0 20px 40px rgba(5, 150, 105, 0.35), 0 6px 12px rgba(0, 0, 0, 0.1);
   letter-spacing: 1.2px;
 }
 
-.btn-white:active {
+.btn-white-wrapper:active .btn-white {
   transform: translateY(1px) scale(0.96);
   box-shadow: 0 4px 10px rgba(5, 150, 105, 0.15);
 }
