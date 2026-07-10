@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform, useMotionValue } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionValue, animate } from 'framer-motion';
 import CountUpModule from 'react-countup';
 const CountUp = CountUpModule.default || CountUpModule;
 import './Home.css';
@@ -8,6 +8,7 @@ import './Home.css';
 const Home = () => {
   const processRef = React.useRef(null);
   const viewportRef = React.useRef(null);
+  const isDraggingRef = React.useRef(false);
   const { scrollYProgress } = useScroll();
   const { scrollYProgress: processScroll } = useScroll({
     target: processRef,
@@ -24,6 +25,21 @@ const Home = () => {
     return `calc(${latestXTranslation} + ${latestDragX}px)`;
   });
 
+  // Snaps the dragX offset back to 0 smoothly when page scrolling occurs
+  React.useEffect(() => {
+    const unsubscribe = processScroll.on("change", () => {
+      if (!isDraggingRef.current && dragX.get() !== 0) {
+        animate(dragX, 0, {
+          type: "spring",
+          stiffness: 120,
+          damping: 24,
+          restDelta: 0.1
+        });
+      }
+    });
+    return () => unsubscribe();
+  }, [processScroll, dragX]);
+
   React.useEffect(() => {
     const el = viewportRef.current;
     if (!el) return;
@@ -34,6 +50,7 @@ const Home = () => {
 
     const handleMouseDown = (e) => {
       isDown = true;
+      isDraggingRef.current = true;
       el.classList.add('dragging');
       startX = e.pageX - el.offsetLeft;
       dragStart = dragX.get();
@@ -41,11 +58,13 @@ const Home = () => {
 
     const handleMouseLeave = () => {
       isDown = false;
+      isDraggingRef.current = false;
       el.classList.remove('dragging');
     };
 
     const handleMouseUp = () => {
       isDown = false;
+      isDraggingRef.current = false;
       el.classList.remove('dragging');
     };
 
@@ -68,6 +87,7 @@ const Home = () => {
     let touchStartX;
     const handleTouchStart = (e) => {
       isDown = true;
+      isDraggingRef.current = true;
       touchStartX = e.touches[0].pageX - el.offsetLeft;
       dragStart = dragX.get();
     };
