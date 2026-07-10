@@ -422,7 +422,7 @@
 
 .apparel-tag {
   background: #ffffff;
-  padding: 1.25rem 1.5rem;
+  padding: 1.25rem 1rem;
   font-weight: 700;
   font-size: 0.85rem;
   text-transform: uppercase;
@@ -432,6 +432,8 @@
   cursor: default;
   text-align: center;
   border-radius: 4px;
+  width: 180px; /* Enforces equal width on all tags */
+  box-sizing: border-box;
 }
 
 .apparel-tag:hover {
@@ -616,8 +618,9 @@
   }
 
   .apparel-tag {
-    padding: 1rem;
+    padding: 1rem 0.5rem;
     font-size: 0.75rem;
+    width: 140px; /* Uniform width on mobile screens */
   }
 }
 
