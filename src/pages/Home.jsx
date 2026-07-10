@@ -7,6 +7,7 @@ import './Home.css';
 
 const Home = () => {
   const processRef = React.useRef(null);
+  const viewportRef = React.useRef(null);
   const { scrollYProgress } = useScroll();
   const { scrollYProgress: processScroll } = useScroll({
     target: processRef,
@@ -14,6 +15,74 @@ const Home = () => {
   });
   const yPos = useTransform(scrollYProgress, [0, 1], [0, -150]);
   const xTranslation = useTransform(processScroll, [0, 1], ["-75%", "0%"]);
+
+  React.useEffect(() => {
+    const el = viewportRef.current;
+    if (!el) return;
+
+    let isDown = false;
+    let startX;
+    let scrollStart;
+
+    const handleMouseDown = (e) => {
+      isDown = true;
+      el.classList.add('dragging');
+      startX = e.pageX - el.offsetLeft;
+      scrollStart = window.scrollY;
+    };
+
+    const handleMouseLeave = () => {
+      isDown = false;
+      el.classList.remove('dragging');
+    };
+
+    const handleMouseUp = () => {
+      isDown = false;
+      el.classList.remove('dragging');
+    };
+
+    const handleMouseMove = (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - el.offsetLeft;
+      const walk = (x - startX) * 2.5; // Drag sensitivity
+      window.scrollTo(0, scrollStart - walk);
+    };
+
+    el.addEventListener('mousedown', handleMouseDown);
+    el.addEventListener('mouseleave', handleMouseLeave);
+    el.addEventListener('mouseup', handleMouseUp);
+    el.addEventListener('mousemove', handleMouseMove);
+
+    // Touch support
+    let touchStartX;
+    const handleTouchStart = (e) => {
+      isDown = true;
+      touchStartX = e.touches[0].pageX - el.offsetLeft;
+      scrollStart = window.scrollY;
+    };
+
+    const handleTouchMove = (e) => {
+      if (!isDown) return;
+      const x = e.touches[0].pageX - el.offsetLeft;
+      const walk = (x - touchStartX) * 2.5;
+      window.scrollTo(0, scrollStart - walk);
+    };
+
+    el.addEventListener('touchstart', handleTouchStart);
+    el.addEventListener('touchend', handleMouseUp);
+    el.addEventListener('touchmove', handleTouchMove);
+
+    return () => {
+      el.removeEventListener('mousedown', handleMouseDown);
+      el.removeEventListener('mouseleave', handleMouseLeave);
+      el.removeEventListener('mouseup', handleMouseUp);
+      el.removeEventListener('mousemove', handleMouseMove);
+      el.removeEventListener('touchstart', handleTouchStart);
+      el.removeEventListener('touchend', handleMouseUp);
+      el.removeEventListener('touchmove', handleTouchMove);
+    };
+  }, []);
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 50 },
@@ -204,7 +273,7 @@ const Home = () => {
               <h2 className="section-title text-inverse">HOW WE BUILD YOUR BRAND</h2>
             </div>
 
-            <div className="train-track-viewport">
+            <div className="train-track-viewport" ref={viewportRef}>
               <motion.div className="train-carriages" style={{ x: xTranslation }}>
                 {processSteps.slice().reverse().map((step, idx) => (
                   <div key={idx} className="train-compartment-wrapper">

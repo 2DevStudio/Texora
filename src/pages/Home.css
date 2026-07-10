@@ -249,6 +249,12 @@
   padding: 3rem 0;
   z-index: 2;
   margin-top: 1rem;
+  cursor: grab;
+  user-select: none;
+}
+
+.train-track-viewport.dragging {
+  cursor: grabbing;
 }
 
 .train-carriages {
