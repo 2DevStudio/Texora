@@ -160,6 +160,45 @@ const Home = () => {
     }
   ];
 
+  const corporateSolutions = [
+    {
+      title: "Retail Stores",
+      desc: "Branded uniforms for retail staff. Custom t-shirts, aprons, and accessories that represent your brand.",
+      bullets: ["Staff T-Shirts", "Branded Aprons", "Name Tags", "Seasonal Designs"],
+      img: "/retail_solution.png"
+    },
+    {
+      title: "Healthcare & Medical",
+      desc: "Professional medical apparel with facility branding. Scrubs, lab coats, and healthcare uniforms.",
+      bullets: ["Embroidered Scrubs", "Lab Coats", "Department Colors", "Name Embroidery"],
+      img: "/medical_solution.png"
+    },
+    {
+      title: "Sports & Fitness",
+      desc: "Custom athletic wear for teams and gyms. Jerseys, training gear, and fan merchandise.",
+      bullets: ["Team Jerseys", "Training Gear", "Fan Merch", "Gym Staff Uniforms"],
+      img: "/sports_solution.png"
+    },
+    {
+      title: "Restaurants & Hospitality",
+      desc: "Custom uniforms for restaurants, hotels, and catering services. Branded aprons, chef coats, and staff shirts.",
+      bullets: ["Branded Aprons", "Chef Coats", "Server Uniforms", "Name Embroidery"],
+      img: "/restaurant_solution.png"
+    },
+    {
+      title: "Construction & Industrial",
+      desc: "Durable workwear and safety gear with company branding. High-visibility vests, hard hats, and work shirts.",
+      bullets: ["Safety Vests", "Work Shirts", "Hard Hat Logos", "Reflective Striping"],
+      img: "/construction_solution.png"
+    },
+    {
+      title: "Corporate Offices",
+      desc: "Professional attire for your team. Embroidered polo shirts, dress shirts, and corporate gifts.",
+      bullets: ["Polo Shirts", "Dress Shirts", "Corporate Gifts", "Event Apparel"],
+      img: "/corporate_solution.png"
+    }
+  ];
+
   return (
     <div className="home-page">
       {/* Cinematic Hero Section */}
@@ -371,6 +410,82 @@ const Home = () => {
                 {item}
               </motion.div>
             ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Business Apparel Solutions Section */}
+      <section className="corporate-solutions-section section-padding bg-light-gray border-top">
+        <div className="container">
+          <motion.div 
+            className="section-header text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <span className="kicker text-accent">CORPORATE SOLUTIONS</span>
+            <h2 className="section-title dark-text">BUSINESS APPAREL SOLUTIONS</h2>
+            <p className="section-subtitle-text max-w-700">
+              We create customized apparel for businesses of all types. From restaurants to construction companies, we help you outfit your team with professional, branded clothing that makes a lasting impression.
+            </p>
+          </motion.div>
+
+          <motion.div 
+            className="corporate-solutions-grid"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerContainer}
+          >
+            {corporateSolutions.map((solution, idx) => (
+              <motion.div 
+                key={idx} 
+                className="solution-card"
+                variants={fadeInUp}
+              >
+                <div className="solution-card-image">
+                  <img src={solution.img} alt={solution.title} />
+                </div>
+                <div className="solution-card-body">
+                  <h3>{solution.title}</h3>
+                  <p>{solution.desc}</p>
+                  
+                  <ul className="solution-bullets">
+                    {solution.bullets.map((bullet, bIdx) => (
+                      <li key={bIdx}>
+                        <span className="bullet-arrow">&gt;</span> {bullet}
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <Link to="/contact" className="btn-secondary btn-full text-center">
+                    Get Business Quote <span className="btn-arrow">→</span>
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Need Custom Apparel For Your Business Banner */}
+      <section className="business-cta-section section-padding">
+        <div className="container">
+          <motion.div 
+            className="business-cta-banner"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <h2>Need Custom Apparel For Your Business?</h2>
+            <p>
+              We offer bulk discounts, dedicated account managers, and flexible payment terms for business clients. Let us help you create the perfect uniforms for your team.
+            </p>
+            <Link to="/contact" className="btn-white">
+              Request Business Quote
+            </Link>
           </motion.div>
         </div>
       </section>

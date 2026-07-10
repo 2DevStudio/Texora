@@ -673,3 +673,211 @@
   }
 }
 
+/* Business Apparel Solutions Section */
+.corporate-solutions-section {
+  background-color: #f9fafb;
+}
+
+.section-title.dark-text {
+  color: #111827 !important;
+}
+
+.section-subtitle-text {
+  color: #4b5563;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 1rem auto 0 auto;
+}
+
+.max-w-700 {
+  max-width: 700px;
+}
+
+.corporate-solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  margin-top: 4rem;
+}
+
+.solution-card {
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e5e7eb;
+}
+
+.solution-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+}
+
+.solution-card-image {
+  height: 220px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.solution-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.solution-card-body {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.solution-card-body h3 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.solution-card-body p {
+  color: #4b5563;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
+}
+
+.solution-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  flex-grow: 1;
+}
+
+.solution-bullets li {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bullet-arrow {
+  color: #f97316; /* Vibrant Orange arrow */
+  font-weight: 800;
+}
+
+.btn-secondary.btn-full {
+  width: 100%;
+  border: 1.5px solid #f97316;
+  color: #f97316;
+  background: transparent;
+  padding: 1rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.btn-secondary.btn-full:hover {
+  background: #f97316;
+  color: #ffffff;
+}
+
+.btn-arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.btn-secondary.btn-full:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* Need Custom Apparel Banner */
+.business-cta-section {
+  background-color: #ffffff;
+  padding: 4rem 0;
+}
+
+.business-cta-banner {
+  background: linear-gradient(135deg, #ea580c 0%, #f97316 100%); /* Premium Orange Gradient */
+  border-radius: 16px;
+  padding: 5rem 4rem;
+  text-align: center;
+  color: #ffffff;
+  box-shadow: 0 20px 40px rgba(249, 115, 22, 0.25);
+}
+
+.business-cta-banner h2 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 1.25rem;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.business-cta-banner p {
+  font-size: 1.15rem;
+  max-width: 750px;
+  margin: 0 auto 2.5rem auto;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.btn-white {
+  background: #ffffff;
+  color: #f97316;
+  padding: 1.25rem 2.5rem;
+  border-radius: 9999px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+}
+
+.btn-white:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  background: #fff8f5;
+}
+
+@media (max-width: 992px) {
+  .corporate-solutions-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .corporate-solutions-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .business-cta-banner {
+    padding: 3.5rem 2rem;
+  }
+  
+  .business-cta-banner h2 {
+    font-size: 1.8rem;
+  }
+  
+  .business-cta-banner p {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+}
