@@ -932,7 +932,7 @@
 .btn-white:hover {
   color: var(--accent-primary);
   background: #ffffff;
-  transform: translateY(-8px) translateZ(10px) rotateX(4deg);
+  transform: translateY(-8px) translateZ(10px); /* Lift straight up in 3D space to prevent hover jitter loop */
   box-shadow: 0 20px 40px rgba(5, 150, 105, 0.35), 0 6px 12px rgba(0, 0, 0, 0.1);
   letter-spacing: 1.2px;
 }
