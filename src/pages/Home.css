@@ -422,7 +422,7 @@
 
 .apparel-tag {
   background: #ffffff;
-  padding: 1.25rem 1rem;
+  padding: 1.25rem 0.5rem;
   font-weight: 700;
   font-size: 0.85rem;
   text-transform: uppercase;
@@ -434,6 +434,9 @@
   border-radius: 4px;
   width: 180px; /* Enforces equal width on all tags */
   box-sizing: border-box;
+  white-space: nowrap; /* Forces text to stay on a single line */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .apparel-tag:hover {
@@ -618,9 +621,9 @@
   }
 
   .apparel-tag {
-    padding: 1rem 0.5rem;
-    font-size: 0.75rem;
-    width: 140px; /* Uniform width on mobile screens */
+    padding: 1rem 0.25rem;
+    font-size: 0.72rem;
+    width: 145px; /* Uniform width on mobile screens to fit text in one line */
   }
 }
 
