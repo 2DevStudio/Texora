@@ -490,28 +490,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="cta-section section-padding bg-texture-weave border-top">
-        <div className="container relative-z">
-          <motion.div 
-            className="cta-block"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-          >
-            <div className="cta-content">
-              <p className="kicker text-accent">START YOUR PROJECT</p>
-              <h2 className="cta-title">READY TO UPGRADE<br/>YOUR APPAREL?</h2>
-            </div>
-            <div className="cta-action">
-              <Link to="/contact" className="btn-primary">
-                Request a Quote
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+
     </div>
   );
 };
