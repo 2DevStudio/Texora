@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionValue } from 'framer-motion';
 import CountUpModule from 'react-countup';
 const CountUp = CountUpModule.default || CountUpModule;
 import './Home.css';
@@ -15,6 +15,14 @@ const Home = () => {
   });
   const yPos = useTransform(scrollYProgress, [0, 1], [0, -150]);
   const xTranslation = useTransform(processScroll, [0, 1], ["-75%", "0%"]);
+  
+  // Local drag motion value to shift the train independently of scroll
+  const dragX = useMotionValue(0);
+
+  // Combine percentage scroll transform and pixel drag offset
+  const combinedX = useTransform([xTranslation, dragX], ([latestXTranslation, latestDragX]) => {
+    return `calc(${latestXTranslation} + ${latestDragX}px)`;
+  });
 
   React.useEffect(() => {
     const el = viewportRef.current;
@@ -22,13 +30,13 @@ const Home = () => {
 
     let isDown = false;
     let startX;
-    let scrollStart;
+    let dragStart;
 
     const handleMouseDown = (e) => {
       isDown = true;
       el.classList.add('dragging');
       startX = e.pageX - el.offsetLeft;
-      scrollStart = window.scrollY;
+      dragStart = dragX.get();
     };
 
     const handleMouseLeave = () => {
@@ -45,8 +53,10 @@ const Home = () => {
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - el.offsetLeft;
-      const walk = (x - startX) * 2.5; // Drag sensitivity
-      window.scrollTo(0, scrollStart - walk);
+      const walk = (x - startX) * 1.5; // Drag sensitivity
+      
+      // Update local drag offset only (does not scroll page)
+      dragX.set(dragStart + walk);
     };
 
     el.addEventListener('mousedown', handleMouseDown);
@@ -54,24 +64,24 @@ const Home = () => {
     el.addEventListener('mouseup', handleMouseUp);
     el.addEventListener('mousemove', handleMouseMove);
 
-    // Touch support
+    // Touch support for mobile dragging
     let touchStartX;
     const handleTouchStart = (e) => {
       isDown = true;
       touchStartX = e.touches[0].pageX - el.offsetLeft;
-      scrollStart = window.scrollY;
+      dragStart = dragX.get();
     };
 
     const handleTouchMove = (e) => {
       if (!isDown) return;
       const x = e.touches[0].pageX - el.offsetLeft;
-      const walk = (x - touchStartX) * 2.5;
-      window.scrollTo(0, scrollStart - walk);
+      const walk = (x - touchStartX) * 1.5;
+      dragX.set(dragStart + walk);
     };
 
-    el.addEventListener('touchstart', handleTouchStart);
+    el.addEventListener('touchstart', handleTouchStart, { passive: true });
     el.addEventListener('touchend', handleMouseUp);
-    el.addEventListener('touchmove', handleTouchMove);
+    el.addEventListener('touchmove', handleTouchMove, { passive: true });
 
     return () => {
       el.removeEventListener('mousedown', handleMouseDown);
@@ -82,7 +92,7 @@ const Home = () => {
       el.removeEventListener('touchend', handleMouseUp);
       el.removeEventListener('touchmove', handleTouchMove);
     };
-  }, []);
+  }, [dragX]);
 
   const fadeInUp = {
     hidden: { opacity: 0, y: 50 },
@@ -274,7 +284,7 @@ const Home = () => {
             </div>
 
             <div className="train-track-viewport" ref={viewportRef}>
-              <motion.div className="train-carriages" style={{ x: xTranslation }}>
+              <motion.div className="train-carriages" style={{ x: combinedX }}>
                 {processSteps.slice().reverse().map((step, idx) => (
                   <div key={idx} className="train-compartment-wrapper">
                     {/* Metal coupler line linking compartments (except last) */}
