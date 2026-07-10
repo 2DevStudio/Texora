@@ -925,6 +925,8 @@
   z-index: 1;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transform-style: preserve-3d;
+  perspective: 1000px;
 }
 
 .btn-white::before {
@@ -946,13 +948,14 @@
 .btn-white:hover {
   color: #ffffff;
   border-color: var(--accent-primary);
-  transform: translateY(-2.5px);
-  box-shadow: 0 12px 25px rgba(5, 150, 105, 0.25);
+  transform: translateY(-8px) translateZ(10px) rotateX(4deg);
+  box-shadow: 0 20px 40px rgba(5, 150, 105, 0.4), 0 6px 12px rgba(0, 0, 0, 0.1);
   letter-spacing: 1.5px;
 }
 
 .btn-white:active {
-  transform: translateY(1px) scale(0.98);
+  transform: translateY(1px) scale(0.96);
+  box-shadow: 0 4px 10px rgba(5, 150, 105, 0.2);
 }
 
 @media (max-width: 992px) {
